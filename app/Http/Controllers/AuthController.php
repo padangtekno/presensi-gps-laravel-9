@@ -14,7 +14,15 @@ class AuthController extends Controller
             'nik' => $request->nik,
             'password' => $request->password,
         ])) {
-            # code...
+            return redirect('/dashboard');
+        } else {
+            echo "Gagal Login";
+        }
+    }
+    public function ProsesLogout()
+    {
+        if (Auth::guard('karyawan')->check()) {
+            Auth::guard('karyawan')->logout();
         }
     }
 }

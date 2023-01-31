@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::post('/ProsesLogin', [AuthController::class, 'ProsesLogin']);
+Route::post('/ProsesLogout', [AuthController::class, 'ProsesLogout']);

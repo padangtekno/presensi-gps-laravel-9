@@ -11,7 +11,7 @@
             <span id="user-role">Head of IT</span>
         </div>
     </div>
-</div>
+</div> 
 
 <div class="section" id="menu-section">
     <div class="card">
