@@ -15,10 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth/v_login');
+
+
+Route::middleware(['guest:karyawan'])->group(function () {
+    Route::get('/', function () {
+        return view('auth/v_login');
+    })->name('login');
+    Route::post('/ProsesLogin', [AuthController::class, 'ProsesLogin']);
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::post('/ProsesLogin', [AuthController::class, 'ProsesLogin']);
-Route::post('/ProsesLogout', [AuthController::class, 'ProsesLogout']);
+Route::middleware(['auth:karyawan'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/ProsesLogout', [AuthController::class, 'ProsesLogout']);
+});
+
+//smpai video 16:07

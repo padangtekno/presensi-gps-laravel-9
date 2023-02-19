@@ -23,6 +23,7 @@ class AuthController extends Controller
     {
         if (Auth::guard('karyawan')->check()) {
             Auth::guard('karyawan')->logout();
+            return redirect('/');
         }
     }
 }
